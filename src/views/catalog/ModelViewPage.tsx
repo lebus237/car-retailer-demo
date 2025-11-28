@@ -12,7 +12,6 @@ import { useEffect, useState } from "react";
 import { Car } from "@/types";
 import { fetchCarYearModel } from "@/api";
 import Image from "next/image";
-import { LoadingCard } from "@/components/shared/LoadingCard";
 
 export function ModelViewPage({
   yearList,
@@ -24,14 +23,13 @@ export function ModelViewPage({
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const routeParams = useParams();
+  const routeParams: any = useParams();
   const [loading, setLoading] = useState(true);
 
   const [carData, setCarData] = useState<Car>();
 
   useEffect(() => {
     (async () => {
-      // @ts-ignore
       const {
         params: [modelId, brandId],
       } = routeParams;

@@ -1,17 +1,13 @@
 "use client";
 
-import { BrandType, CarModelType } from "@/types";
-import { BrandCard } from "@/components/entity/BrandCard";
+import { CarModelType } from "@/types";
 import { useParams, useRouter } from "next/navigation";
 import { stringToSlug } from "@/lib/string/slug";
-import { SectionComponent } from "@/views/home/components/SectionComponent";
-import { Badge } from "@/components/core/badge";
 import { CarModelCard } from "@/components/entity/CarModelCard";
 
 export function BrandViewPage({
   modelList,
   title,
-  yearList,
 }: {
   yearList: any[];
   modelList: CarModelType[];
@@ -38,24 +34,24 @@ export function BrandViewPage({
         <p className="font-bold italic text-2xl">Modeles disponibles</p>
       </header>
       <section className="space-y-12">
-        <header className="container mx-auto">
-          <SectionComponent
-            title="Annees"
-            itemsList={yearList}
-            classNames={{ item: "basis-1/12", title: "text-xl" }}
-            renderItem={(y) => (
-              <Badge
-                className="p-3 text-blue-300"
-                variant="outline"
-                onClick={() =>
-                  router.push(`/catalog/model/${y.id}/${stringToSlug(y.name)}`)
-                }
-              >
-                {y.name}
-              </Badge>
-            )}
-          />
-        </header>
+        {/*<header className="container mx-auto">*/}
+        {/*  <SectionComponent*/}
+        {/*    title="Annees"*/}
+        {/*    itemsList={yearList}*/}
+        {/*    classNames={{ item: "basis-1/12", title: "text-xl" }}*/}
+        {/*    renderItem={(y) => (*/}
+        {/*      <Badge*/}
+        {/*        className="p-3 text-blue-300"*/}
+        {/*        variant="outline"*/}
+        {/*        onClick={() =>*/}
+        {/*          router.push(`/catalog/model/${y.id}/${stringToSlug(y.name)}`)*/}
+        {/*        }*/}
+        {/*      >*/}
+        {/*        {y.name}*/}
+        {/*      </Badge>*/}
+        {/*    )}*/}
+        {/*  />*/}
+        {/*</header>*/}
         <main className="grid grid-cols-5 gap-4">
           {modelList.map((model: CarModelType, index: number) => (
             <CarModelCard
